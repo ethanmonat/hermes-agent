@@ -12,8 +12,10 @@ name: Canary Release
 # conclusion=failure is a canary failure signal.
 
 on:
-  schedule:
-    - cron: "41 6 * * *" # daily, 06:41 UTC
+  # schedule deliberately removed on this fork: a fork mirror re-tags upstream
+  # canaries as fork tags without the upstream release environment, and the
+  # tag/draft step then leaves a ghost tag in the public repo. The upstream
+  # canary pipeline is the one that should run; only trigger this manually.
   workflow_dispatch:
 
 permissions:
