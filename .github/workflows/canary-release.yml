@@ -10,10 +10,12 @@ name: Canary Release
 # the protected R2 canary head moves subscribers. A dispatch queued behind a
 # running canary has conclusion=cancelled if a newer one supersedes it; only
 # conclusion=failure is a canary failure signal.
+#
+# Fork mirror: the daily schedule is disabled upstream-only (canary publishing
+# needs upstream's R2 + release assets a fork mirror never has). Restore when
+# this mirror syncs a canary of our own.
 
 on:
-  schedule:
-    - cron: "41 6 * * *" # daily, 06:41 UTC
   workflow_dispatch:
 
 permissions:
